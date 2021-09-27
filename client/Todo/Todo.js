@@ -1,13 +1,13 @@
 import React from "react";
 import { Card, CardContent, Typography, Container } from "@material-ui/core";
 
-const Todo = ({ todo, todoNo }) => {
+const Todo = ({ todo, todoNo}) => {
   return (
     <Container>
       <Card>
         <CardContent>
           <Typography variant="h5" component="h2">
-            {todoNo + 1}) {todo}
+            {todoNo}) {todo}
           </Typography>
         </CardContent>
       </Card>

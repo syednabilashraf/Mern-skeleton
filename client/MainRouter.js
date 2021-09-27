@@ -8,7 +8,7 @@ import EditProfile from './user/EditProfile'
 import Profile from './user/Profile'
 import PrivateRoute from './auth/PrivateRoute'
 import Menu from './core/Menu'
-import TodoPage from './core/TodoPage'
+import TodoPage from './Todo/TodoPage'
 
 const MainRouter = () => {
     return (<div>
