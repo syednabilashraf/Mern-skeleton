@@ -10,10 +10,10 @@ router.route('/api/todos') //todo
 
 
 router.route('/api/todos/:todoId')
-  .get(authCtrl.requireSignin, todoCtrl.read)
-  .put(authCtrl.requireSignin, authCtrl.hasAuthorization, todoCtrl.update)
-  .delete(authCtrl.requireSignin, authCtrl.hasAuthorization, todoCtrl.remove)
+  .get( todoCtrl.read)
+  .put(todoCtrl.update)
+  .delete(todoCtrl.remove)
 
-// router.param('todoId', todoCtrl.todoByID)
+router.param('todoId', todoCtrl.todoByID)
 
 export default router

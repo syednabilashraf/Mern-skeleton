@@ -15,7 +15,7 @@ const create = async (req, res) => {
     })
   }
 } 
-
+   
 const todoByID = async (req, res, next, id) => {
   try {
     let todo = await Todo.findById(id)
@@ -31,9 +31,8 @@ const todoByID = async (req, res, next, id) => {
     })
   }
 }
+
 const read = (req, res) => {
-  req.profile.hashed_password = undefined
-  req.profile.salt = undefined
   return res.json(req.profile)
 }
 
@@ -51,8 +50,8 @@ const list = async (req, res) => {
 const update = async (req, res) => {
   try {
     let todo = req.profile
-    todo = extend(user, req.body)  //what??
-    // todo.updated = Date.now() 
+    todo = extend(todo, req.body)
+    todo.updated = Date.now() 
     await todo.save()
     res.json(todo)
   } catch (err) {
@@ -66,8 +65,6 @@ const remove = async (req, res) => {
   try {
     let todo = req.profile
     let deletedTodo = await todo.remove()
-    deletedTodo.hashed_password = undefined
-    deletedTodo.salt = undefined
     res.json(deletedTodo)
   } catch (err) {
     return res.status(400).json({
@@ -81,5 +78,6 @@ export default {
   read,
   list,
   remove,
-  update
+  update,
+  todoByID
 }

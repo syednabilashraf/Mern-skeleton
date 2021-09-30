@@ -7,7 +7,7 @@ function TodoPage() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    const abortController = new AbortController()
+    const abortController = new AbortController() 
     const signal = abortController.signal
 
     list(signal).then((data) => {
